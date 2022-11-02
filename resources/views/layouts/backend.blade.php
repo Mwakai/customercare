@@ -204,6 +204,24 @@
             <p>Informational</p>
           </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>
+                Log Out
+                
+              </p>
+            </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                   @csrf
+               </form>
+
+
+          </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
@@ -238,6 +256,9 @@
       
     </div><!-- /.container-fluid -->
   </section>
+
+
+  
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
