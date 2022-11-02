@@ -9,3 +9,23 @@
     
     
 }
+
+.container{
+    padding-left: 200px !important;
+}
+.button {
+    background-color: #003300;
+    color: #fff;
+    border:none; 
+    border-radius:10px; 
+    min-height:30px; 
+    min-width: 120px;
+    justify-content: center;
+    text-align: center;
+    display: block;
+    margin-top: 20px !important;
+}
+.button:hover {
+    background-color: #00b300;
+    transition: 0.7s;
+}
