@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Ticket extends Model
 {
     use HasFactory;
+
+    protected $table='tickets';
+    protected $fillable=[
+        'name',
+        'email',
+        'title',
+        'issue',
+        'image'
+
+    ];
 }
