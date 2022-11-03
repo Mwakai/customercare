@@ -2,6 +2,7 @@
 @section('content')
 
 <form action="" method="POST">
+    @csrf
     <div class="container">
         <div class="col-md-8">
             <label for="exampleFormControlInput1" class="form-label">Name</label>
@@ -24,7 +25,7 @@
         <input class="form-control" type="file" id="formFile">
         </div>
         <button type="submit" class="button">
-            Send
+            Senafa
         </button>
     </div>
 
