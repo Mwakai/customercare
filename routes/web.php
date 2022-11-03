@@ -22,6 +22,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//ROUTE TO ADMIN PAGE
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//ROUTE TO SEND DATA TO THE DATABASE
 Route::post('/pages/form','TicketController@ticket')->name('pages.form');
+
+
