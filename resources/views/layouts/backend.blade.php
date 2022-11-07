@@ -135,29 +135,14 @@
 
         
         
-        <li class="nav-header">EXAMPLES</li>
+        <li class="nav-header">TICKETS</li>
         
-        <li class="nav-item">
-          <a href="pages/gallery.html" class="nav-link">
-            <i class="nav-icon far fa-image"></i>
-            <p>
-              Gallery
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="pages/kanban.html" class="nav-link">
-            <i class="nav-icon fas fa-columns"></i>
-            <p>
-              Kanban Board
-            </p>
-          </a>
-        </li>
+        
         <li class="nav-item">
           <a href="#" class="nav-link">
             <i class="nav-icon far fa-envelope"></i>
             <p>
-              Mailbox
+              Tickets
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
@@ -165,45 +150,24 @@
             <li class="nav-item">
               <a href="pages/mailbox/mailbox.html" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Inbox</p>
+                <p>Open Tickets</p>
               </a>
             </li>
             <li class="nav-item">
               <a href="pages/mailbox/compose.html" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Compose</p>
+                <p>Closed Tickets</p>
               </a>
             </li>
-            <li class="nav-item">
-              <a href="pages/mailbox/read-mail.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Read</p>
-              </a>
-            </li>
+            
           </ul>
         </li>
         
         
         
-        <li class="nav-header">LABELS</li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon far fa-circle text-danger"></i>
-            <p class="text">Important</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon far fa-circle text-warning"></i>
-            <p>Warning</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon far fa-circle text-info"></i>
-            <p>Informational</p>
-          </a>
-        </li>
+        <li class="nav-header"></li>
+        
+        
 
         <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
