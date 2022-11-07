@@ -10,9 +10,12 @@
            
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>150</h3>
+              @if(!empty($total))
+                <h3>{{$total}}</h3>
+                @endif
+                
 
-                <p>New Orders</p>
+                <p>Tickets</p>
               </div>
               
               
