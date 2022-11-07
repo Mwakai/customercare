@@ -28,4 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //ROUTE TO SEND DATA TO THE DATABASE
 Route::post('/pages/form','TicketController@ticket')->name('pages.form');
 
+//ROUTE TO OPEN TICKET
+
+
 

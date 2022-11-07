@@ -36,5 +36,7 @@ class TicketController extends Controller
         return redirect()->back()->with('success','Message has been sent');
     }
 
+   
+
     
 }
