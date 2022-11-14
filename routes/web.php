@@ -29,6 +29,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('/pages/form','TicketController@ticket')->name('pages.form');
 
 //ROUTE TO OPEN TICKET
-
-
+Route::get('pages/admin/openticket','TicketController@openticket')->name('admin.openticket');
+Route::get('pages/admin/closedticket','TicketController@closedticket')->name('admin.closedticket');
 

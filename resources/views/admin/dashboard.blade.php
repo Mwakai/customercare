@@ -27,9 +27,9 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-success">
               <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3><sup style="font-size: 20px">%</sup></h3>
 
-                <p>Bounce Rate</p>
+                <p></p>
               </div>
               
             </div>
@@ -41,9 +41,9 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>65</h3>
+                <h3></h3>
 
-                <p>Unique Visitors</p>
+                <p>Closed Tickets</p>
               </div>
              
             </div>
