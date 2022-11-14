@@ -20,7 +20,9 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3>Records</h3>
+                                @if(!empty($total))
+                                <h3>{{$total}}Records</h3>
+                                @endif
 
                                 <button class="btn btn-success">
                                     <i class="fa fa-plus"></i>Add
