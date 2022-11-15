@@ -36,9 +36,18 @@ class TicketController extends Controller
         return redirect()->back()->with('success','Message has been sent');
     }
 
-    /*
-        ADMIN FUNCTION TO SHOW OPEN TICKETS
-    */
+    /**
+     * DELETE TICKET 
+     * SEND THE TICKET TO CLOSED TICKETS
+     */
+    public function deleteticket(){
+
+    }
+
+
+    /**
+     * ADMIN FUNCTION TO SHOW OPEN TICKETS
+     */
    public function openticket() {
 
     $query=Ticket::all();
