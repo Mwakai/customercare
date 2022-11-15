@@ -36,6 +36,9 @@ class TicketController extends Controller
         return redirect()->back()->with('success','Message has been sent');
     }
 
+    /*
+        ADMIN FUNCTION TO SHOW OPEN TICKETS
+    */
    public function openticket() {
 
     $query=Ticket::all();
@@ -44,6 +47,10 @@ class TicketController extends Controller
 
     return view('admin.openticket', compact('tickets','total'))->with('i',(request()->input('page',1)-1)*5);
    }
+
+   /*
+    ADMIN FUNCTION TO SHOW CLOSED TICKETS
+   */
 
    public function closedticket() {
 
