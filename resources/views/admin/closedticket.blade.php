@@ -1,71 +1,207 @@
 @extends('layouts.backend')
 @section('content')
 
+@if(session('success'))
+
+  <div class="alert alert-success" id="successMessage">
+    {{session('success')}}
+  </div>
+@endif
+
+@if(session('failed'))
+<div class="alert alert-danger" id="failedMessage">
+  {{session('failed')}}
+</div>
+@endif
+<script>
+
+  setTimeout(
+    function(){
+      $("#successMessage").delay(3000).fadeOut('fast');
+    },1000
+  );
+  
+  setTimeout(
+    function(){
+      $("failedMessage").delay(3000).fadeOut('fast');
+    },1000
+
+  );
+</script>
+
 <div class="row">
-   <div class="col-md-12">
-    <div class="card card-primary collapsed-card">
-        <div class="card-header">
-            <h3 class="card-title">Closed Tickets</h3>
-
-            <div class="card-tools">
-                <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-plus"></i>
-                </button>
+    <div class="col-md-12">
+        <div class="card card-primary collapsed-card">
+            <div class="card-header">
+                <h3 class="card-title">Open Ticket</h3>
+               
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
             </div>
-        </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                @if(!empty($total))
+                                <h3>{{$total}} Records</h3>
+                                @endif
 
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Records</h3>
-                            <button class="btn btn-success">
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
                                     <i class="fa fa-plus"></i>Add
-                            </button>
-                        </div>
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-hover text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Title</th>
-                                        <th>Issue</th>
-                                        <th>Image</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
+                                </button>
+                            </div>
 
-                                <tbody>
-                                    <tr>
-                                    <td>id</td>
-                                    <td>name</td>
-                                    <td>email</td>
-                                    <td>title</td>
-                                    <td>isuue</td>
-                                    <td>
-                                        <img src="" class="img-circle" style="width:40px; height:30px">
-                                    </td>
-                                    <td>
-                                        <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="">
-                                            <i class="fa fa-edit"></i>Edit
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="">
-                                            <i class="fa fa-trash"></i>Delete
-                                        </button>
-                                    </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Image Name</th>
+                                            <th>Heading</th>
+                                            <th>Image</th>
+                                            <th>Paragraph</th>
+                                            <th>Head</th>
+                                            <th>Department</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        <tr>
+                                            <td>id</td>
+                                            <td>name</td>
+                                            <td>heading</td>
+                                            <td>
+                                                <img src="" class="img-circle" style="width:40px; height:30px">
+                                            </td>
+                                            <td>paragraph</td>
+                                            <td>head</td>
+                                            <td>department</td>
+                                            <td>
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal">
+                                                    <i class="fa fa-edit"></i>Edit
+
+                                                </button>
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
+                                                    <i class="fa fa-trash"></i>Delete
+
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                        <!--EDIT MODAL-->
+                                        <div class="modal fade" id="editModal">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4>Update: </h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <form method="POST" action="" enctype="multipart/form-data">
+                                                        @csrf
+                                                        <div class="modal-body">
+                                                            <div class="row">
+                                                                <input type="text" name="id" value="" hidden="true">
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label>Image Name</label>
+                                                                        <input type="text" class="form-control  " name="image_name" value="">
+                                                                          
+                                                                            <div class="alert alert-danger"></div>
+                                                                            
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-md-12">
+                                                                      <div class="form-group">
+                                                                          <label>Heading</label>
+                                                                          <input type="text" class="form-control @error('heading') is-invalid @enderror " name="heading" value="">
+                                                                          
+                                                                        <div class="alert alert-danger"></div>
+                                                                        
+                                                                      </div>
+                                                                  </div>
+
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group">
+                                                                        <label>Paragraph</label>
+                                                                        <textarea class="form-control" name="paragraph">
+                                                                            
+
+                                                                        </textarea>
+                                                                       
+                                                                        <div class="alert alert-danger"></div>
+                                                                        
+                                                                      </div>
+                                                                  </div>
+
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group">
+                                                                          <label>Head</label>
+                                                                          <input type="text" class="form-control @error('head') is-invalid @enderror " name="head" value="">
+                                                                          
+                                                                        <div class="alert alert-danger"></div>
+                                                                        
+                                                                      </div>
+                                                                  </div>
+
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group">
+                                                                          <label>Department</label>
+                                                                          <input type="text" class="form-control @error('department') is-invalid @enderror " name="department" value="">
+                                                                          
+                                                                        <div class="alert alert-danger"></div>
+                                                                        
+                                                                      </div>
+                                                                  </div>
+
+                                                                  <div class="col-md-12">
+                                                                      <img src="" width="100px" height="90px">
+                                                                  </div>
+
+                                                                  <div class="col-md-12">
+                                                                      <label>Image</label>
+                                                                      <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">  
+                                                                  </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer justify-content-between">
+                                                              <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                              <button type="submit" class="btn btn-success">Save</button>
+                                                          </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--END OF EDIT MODAL-->
+
+                                       
+                                       
+                                    
+                                    </tbody>
+                                </table> 
+                                            
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   </div> 
+
+     
+
+
 </div>
+
+
 
 @endsection
