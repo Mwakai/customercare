@@ -82,54 +82,38 @@
                                                                 <input type="text" name="id" value="" hidden="true">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <label>Image Name</label>
+                                                                        <label>Name</label>
                                                                         <input type="text" class="form-control  " name="image_name" value="">
                                                                           
-                                                                            <div class="alert alert-danger"></div>
                                                                             
                                                                     </div>
                                                                 </div>
 
                                                                 <div class="col-md-12">
                                                                       <div class="form-group">
-                                                                          <label>Heading</label>
-                                                                          <input type="text" class="form-control @error('heading') is-invalid @enderror " name="heading" value="">
-                                                                          
-                                                                        <div class="alert alert-danger"></div>
+                                                                          <label>Email</label>
+                                                                          <input type="email" class="form-control @error('heading') is-invalid @enderror " name="heading" value="">
+                                                                       
                                                                         
                                                                       </div>
                                                                   </div>
 
                                                                   <div class="col-md-12">
                                                                       <div class="form-group">
-                                                                        <label>Paragraph</label>
+                                                                          <label>Title</label>
+                                                                          <input type="text" class="form-control @error('head') is-invalid @enderror " name="head" value="">
+                                                                        
+                                                                      </div>
+                                                                  </div>
+
+                                                                  <div class="col-md-12">
+                                                                      <div class="form-group">
+                                                                        <label>Issue</label>
                                                                         <textarea class="form-control" name="paragraph">
                                                                             
 
                                                                         </textarea>
-                                                                       
-                                                                        <div class="alert alert-danger"></div>
-                                                                        
-                                                                      </div>
-                                                                  </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group">
-                                                                          <label>Head</label>
-                                                                          <input type="text" class="form-control @error('head') is-invalid @enderror " name="head" value="">
-                                                                          
-                                                                        <div class="alert alert-danger"></div>
-                                                                        
-                                                                      </div>
-                                                                  </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group">
-                                                                          <label>Department</label>
-                                                                          <input type="text" class="form-control @error('department') is-invalid @enderror " name="department" value="">
-                                                                          
-                                                                        <div class="alert alert-danger"></div>
-                                                                        
+                                                                    
                                                                       </div>
                                                                   </div>
 
@@ -137,10 +121,6 @@
                                                                       <img src="" width="100px" height="90px">
                                                                   </div>
 
-                                                                  <div class="col-md-12">
-                                                                      <label>Image</label>
-                                                                      <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">  
-                                                                  </div>
 
                                                             </div>
                                                         </div>
