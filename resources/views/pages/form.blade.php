@@ -49,7 +49,7 @@
             <textarea class="form-control" rows="5" placeholder="Describe your issue" name="issue"></textarea>
         </div>
         <div class="col-md-8">
-        <label for="formFile" class="form-label">Default file input example</label>
+        <label for="formFile" class="form-label">Attach an Image</label>
         <input class="form-control" type="file"  name="image">
         </div>
         <button type="submit" class="button">
