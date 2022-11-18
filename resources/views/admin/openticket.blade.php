@@ -23,11 +23,11 @@
                                 <h3>{{$total}} Records</h3>
                                 @endif
 
-                            <!--
+                            
                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
                                     <i class="fa fa-plus"></i>Add
                                 </button>
-                            -->
+                            
                             </div>
 
                             <div class="card-body table-responsive p-0">
@@ -87,7 +87,7 @@
                                                                         <label>Name</label>
                                                                         <input type="text" class="form-control  " name="image_name" value="">
                                                                           
-                                                                            
+                                                                        
                                                                     </div>
                                                                 </div>
 
