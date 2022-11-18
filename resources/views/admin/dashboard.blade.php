@@ -14,7 +14,6 @@
                 <h3>{{$total}}</h3>
                 @endif
                 
-
                 <p>Tickets</p>
               </div>
               
@@ -27,7 +26,7 @@
           <div class="col-lg-3 col-6">
             <div class="small-box bg-success">
               <div class="inner">
-                <h3><sup style="font-size: 20px">%</sup></h3>
+                <h3><sup style="font-size: 20px">Open Tickets</sup></h3>
 
                 <p></p>
               </div>
