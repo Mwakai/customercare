@@ -1,6 +1,34 @@
 @extends('layouts.backend')
 @section('content')
 
+@if(session('success'))
+
+  <div class="alert alert-success" id="successMessage">
+    {{session('success')}}
+  </div>
+@endif
+
+@if(session('failed'))
+<div class="alert alert-danger" id="failedMessage">
+  {{session('failed')}}
+</div>
+@endif
+<script>
+
+  setTimeout(
+    function(){
+      $("#successMessage").delay(3000).fadeOut('fast');
+    },1000
+  );
+  
+  setTimeout(
+    function(){
+      $("failedMessage").delay(3000).fadeOut('fast');
+    },1000
+
+  );
+</script>
+
 
 <div class="row">
     <div class="col-md-12">
@@ -57,10 +85,10 @@
                                             
                                             <td>
                                                 <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal">
-                                                    <i class="fa fa-edit"></i>Edit
+                                                    <i class="fa fa-eye"></i>&nbspView
 
                                                 </button>
-                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal{{$ticket->id}}">
                                                     <i class="fa fa-trash"></i>Delete
 
                                                 </button>
@@ -68,8 +96,8 @@
                                         </tr>
 
                                         <!--EDIT MODAL-->
-                                        <div class="modal fade" id="editModal">
-                                            <div class="modal-dialog">
+                                        <div class="modal fade bd-example-modal-lg" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h4>Update: </h4>
@@ -77,65 +105,49 @@
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form method="POST" action="" enctype="multipart/form-data">
-                                                        @csrf
-                                                        <div class="modal-body">
-                                                            <div class="row">
-                                                                <input type="text" name="id" value="" hidden="true">
-                                                                <div class="col-md-12">
-                                                                    <div class="form-group">
-                                                                        <label>Name</label>
-                                                                        <input type="text" class="form-control  " name="image_name" value="">
-                                                                          
-                                                                        
-                                                                    </div>
-                                                                </div>
 
-                                                                <div class="col-md-12">
-                                                                      <div class="form-group">
-                                                                          <label>Email</label>
-                                                                          <input type="email" class="form-control @error('heading') is-invalid @enderror " name="heading" value="">
-                                                                       
-                                                                        
-                                                                      </div>
-                                                                  </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group">
-                                                                          <label>Title</label>
-                                                                          <input type="text" class="form-control @error('head') is-invalid @enderror " name="head" value="">
-                                                                        
-                                                                      </div>
-                                                                  </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group">
-                                                                        <label>Issue</label>
-                                                                        <textarea class="form-control" name="paragraph">
-                                                                            
-
-                                                                        </textarea>
-                                                                    
-                                                                      </div>
-                                                                  </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <img src="" width="100px" height="90px">
-                                                                  </div>
-
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer justify-content-between">
-                                                              <button class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                              <button type="submit" class="btn btn-success">Save</button>
-                                                          </div>
-                                                    </form>
+                                                    {{$ticket->name}}<br>
+                                                    {{$ticket->email}}<br>
+                                                    {{$ticket->title}}<br>
+                                                    {{$ticket->issue}}<br>
+                                                    <img src="{{asset('ticket/'.$ticket->image)}}" class="img-circle" style="width:40px; height:30px">
                                                 </div>
                                             </div>
                                         </div>
 
                                         <!--END OF EDIT MODAL-->
+
+                                        <!--DELETE MODAL-->
+                                        <div class="modal fade" id="deleteModal{{$ticket->id}}">
+                                              <div class="modal-dialog">
+                                                  <div class="modal-content">
+                                                      <div class="modal-header">
+                                                          <h4 class="modal-title">Delete: {{$ticket->title}}</h4>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                              <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                      </div>
+
+                                                      <form method="POST" action="{{route('admin.deleteTicket')}}">
+                                                          @csrf
+                                                          <div class="modal-body">
+                                                              <div class="row">
+                                                                  <input type="text" name="id" value="{{$ticket->id}}" hidden="true">
+                                                                  <div class="col-md-12">
+                                                                      <p>Are you sure you want to delete this record ?</p>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="modal-footer justify-content-between">
+                                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                              <button type="submit" class="btn btn-success">Delete</button>
+                                                          </div>
+
+                                                      </form>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                        <!--END OF DELETE MODAL-->
 
                                        
                                        

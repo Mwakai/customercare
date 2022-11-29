@@ -32,3 +32,5 @@ Route::post('/pages/form','TicketController@ticket')->name('pages.form');
 Route::get('pages/admin/openticket','TicketController@openticket')->name('admin.openticket');
 Route::get('pages/admin/closedticket','TicketController@closedticket')->name('admin.closedticket');
 
+Route::post('/pages/admin/deleteTicket','TicketController@deleteTicket')->name('admin.deleteTicket');
+

@@ -17,7 +17,7 @@ return new class extends Migration
         Schema::create('closed_tickets', function(Blueprint $table){
             $table->id();
             $table->string('name')->nullable();
-            $table->string('email')->unique();
+            $table->string('email')->nullable();
             $table->string('title');
             $table->text('issue');
             $table->string('image')->nullable();

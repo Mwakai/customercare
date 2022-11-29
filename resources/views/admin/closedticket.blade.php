@@ -60,27 +60,25 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Image Name</th>
-                                            <th>Heading</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Title</th>
+                                            <th>Issue</th>
                                             <th>Image</th>
-                                            <th>Paragraph</th>
-                                            <th>Head</th>
-                                            <th>Department</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+                                        @foreach($tickets as $ticket)
                                         <tr>
-                                            <td>id</td>
-                                            <td>name</td>
-                                            <td>heading</td>
+                                            <td>{{$ticket->id}}</td>
+                                            <td>{{$ticket->name}}</td>
+                                            <td>{{$ticket->email}}</td>
+                                            <td>{{$ticket->title}}</td>
+                                            <td>{{$ticket->issue}}</td>
                                             <td>
-                                                <img src="" class="img-circle" style="width:40px; height:30px">
+                                                <img src="{{asset('ticket/'.$ticket->image)}}" class="img-circle" style="width:40px; height:30px">
                                             </td>
-                                            <td>paragraph</td>
-                                            <td>head</td>
-                                            <td>department</td>
                                             <td>
                                                 <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal">
                                                     <i class="fa fa-edit"></i>Edit
@@ -185,7 +183,7 @@
 
                                        
                                        
-                                    
+                                        @endforeach
                                     </tbody>
                                 </table> 
                                             
