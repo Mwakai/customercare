@@ -42,8 +42,14 @@
         </div>
         <div class="col-md-8">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <input type="text" class="form-control" placeholder="Title" name="title">
+            <select id="cas" class="form-control form-control-sm">
+              <option>Open New Case</option>
+              <option>Password Reset</option>
+              <option>Account Activation</option>
+              <option>Small select</option>
+            </select>
         </div>
+
         <div class="col-md-8">
             <label for="exampleFormControlTextarea1" class="form-label">Issue</label>
             <textarea class="form-control" rows="5" placeholder="Describe your issue" name="issue"></textarea>
