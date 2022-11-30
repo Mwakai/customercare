@@ -40,9 +40,10 @@
             <label for="exampleFormControlInput1" class="form-label">Email address</label>
             <input type="email" class="form-control" placeholder="email@gmail.com" name="email">
         </div>
+
         <div class="col-md-8">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <select id="cas" class="form-control form-control-sm">
+            <select name="title" class="form-control form-control-sm">
               <option>Open New Case</option>
               <option>Password Reset</option>
               <option>Account Activation</option>
