@@ -47,7 +47,7 @@
               <option>Open New Case</option>
               <option>Password Reset</option>
               <option>Account Activation</option>
-              <option>Small select</option>
+              <option>Mapping</option>
             </select>
         </div>
 

@@ -84,7 +84,7 @@
                                             </td>
                                             
                                             <td>
-                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal">
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#viewModal">
                                                     <i class="fa fa-eye"></i>&nbspView
 
                                                 </button>
@@ -96,7 +96,7 @@
                                         </tr>
 
                                         <!--EDIT MODAL-->
-                                        <div class="modal fade bd-example-modal-lg" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                        <div class="modal fade bd-example-modal-lg" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
