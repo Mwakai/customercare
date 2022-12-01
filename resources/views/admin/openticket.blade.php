@@ -84,7 +84,7 @@
                                             </td>
                                             
                                             <td>
-                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#viewModal">
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#viewModal{{$ticket->id}}">
                                                     <i class="fa fa-eye"></i>&nbspView
 
                                                 </button>
@@ -95,8 +95,8 @@
                                             </td>
                                         </tr>
 
-                                        <!--EDIT MODAL-->
-                                        <div class="modal fade bd-example-modal-lg" id="viewModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                        <!--VIEW MODAL-->
+                                        <div class="modal fade bd-example-modal-lg" id="viewModal{{$ticket->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -106,16 +106,18 @@
                                                         </button>
                                                     </div>
 
-                                                    {{$ticket->name}}<br>
+                                                    <div class="modal-body">
+                                                        {{$ticket->name}}<br>
                                                     {{$ticket->email}}<br>
                                                     {{$ticket->title}}<br>
                                                     {{$ticket->issue}}<br>
                                                     <img src="{{asset('ticket/'.$ticket->image)}}" class="img-circle" style="width:40px; height:30px">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <!--END OF EDIT MODAL-->
+                                        <!--END OF VIEW MODAL-->
 
                                         <!--DELETE MODAL-->
                                         <div class="modal fade" id="deleteModal{{$ticket->id}}">
