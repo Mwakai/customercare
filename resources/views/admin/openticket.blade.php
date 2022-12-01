@@ -107,11 +107,10 @@
                                                     </div>
 
                                                     <div class="modal-body">
-                                                       
-                                                        {{$ticket->name}}<br>
-                                                        {{$ticket->email}}<br>
-                                                        {{$ticket->title}}<br>
-                                                        {{$ticket->issue}}<br>
+                                                       <h5>{{$ticket->name}}</h5>
+                                                        <h5>{{$ticket->email}}</h5>
+                                                        <h5>{{$ticket->title}}</h5>
+                                                        <h5>{{$ticket->issue}}</h5>
                                                         <img src="{{asset('ticket/'.$ticket->image)}}" class="img-circle" style="width:40px; height:30px">
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
