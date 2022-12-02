@@ -95,13 +95,14 @@
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h4>Update:&nbsp;{{$ticket->title}} </h4>
+                                                        <h4>&nbsp;{{$ticket->title}} </h4>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
 
-                                                    <form action="">
+                                                    <form action="POST" action="">
+                                                        @csrf
                                                         <div class="modal-body">
                                                             <div class="row">
                                                                 <input type="text" name="id" value="{{$ticket->id}}" hidden="true">
@@ -132,21 +133,24 @@
                                                                         </textarea>
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-md-12">
+                                                                      <img src="{{asset('ticket/'.$ticket->image)}}" width="150px" height="140px">
+                                                                  </div>
                                                             </div>
                                                         </div>
-                                                    </form>
+                                                        <div class="modal-footer justify-content-between">
+                                                            <button class="btn btn-danger" data-dismiss="modal">Close</button>
 
-                                                    <div class="modal-footer justify-content-between">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                        <a href="mailto:{{$ticket->email}}">
-                                                            <button type="submit" class="btn btn-success">Reply
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
-                                                                    <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
-                                                                </svg>
-                                                            </button>
-                                                        </a>
-                                                        
-                                                    </div>
+                                                            <a href="mailto:{{$ticket->email}}">
+                                                                <button type="submit" class="btn btn-success">
+                                                                    Reply
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                                                                        <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                                                                    </svg>
+                                                                </button>
+                                                            </a>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
