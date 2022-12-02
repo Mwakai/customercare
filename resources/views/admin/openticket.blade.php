@@ -108,7 +108,9 @@
 
                                                     <div class="modal-body">
                                                        <h5>{{$ticket->name}}</h5>
-                                                        <h5>{{$ticket->email}}</h5>
+                                                       <address>{{$ticket->email}}</address>
+                                                       <a href="">{{$ticket->email}}</a>
+                                                        <h5></h5>
                                                         <h5>{{$ticket->title}}</h5>
                                                         <h5>{{$ticket->issue}}</h5>
                                                         <img src="{{asset('ticket/'.$ticket->image)}}" class="img-circle" style="width:40px; height:30px">

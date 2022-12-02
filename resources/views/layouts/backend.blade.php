@@ -162,12 +162,13 @@
             
           </ul>
         </li>
-        
-        
-        
-        <li class="nav-header"></li>
-        
-        
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon far fa-envelope"></i>
+            <p>Inbox</p>
+          </a>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
@@ -185,7 +186,7 @@
                </form>
 
 
-          </li>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
