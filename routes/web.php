@@ -31,6 +31,7 @@ Route::post('/pages/form','TicketController@ticket')->name('pages.form');
 //ROUTE TO OPEN TICKET
 Route::get('pages/admin/openticket','TicketController@openticket')->name('admin.openticket');
 Route::get('pages/admin/closedticket','TicketController@closedticket')->name('admin.closedticket');
-
+//ROUTE TO REPLY MAILS
+Route::get('pages/admin/reply','ReplyController@reply')->name('admin.reply');
 Route::post('/pages/admin/deleteTicket','TicketController@deleteTicket')->name('admin.deleteTicket');
 
