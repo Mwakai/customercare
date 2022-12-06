@@ -44,22 +44,21 @@ class TicketController extends Controller
      * DELETE TICKET 
      * SEND THE TICKET TO CLOSED TICKETS
      */
-    public function deleteTicket(){
-        DB::transaction(function(Request $request) {
-            $id=$request->id;
-            DB::table('tickets')->where('id', $id)->delete();
+    public function deleteTicket(Request $request){
+        $row= Ticket::find($request->id);
+        $row->delete();
 
-            $image=time().'.'.$request->image->extension();
-            $request->image->move(public_path('closed'),$image);
-            DB::table('closed_tickets')->insert([
-                'name'=> DB::table('tickets')->select('name')->first()->name,
-                'email'=> DB::table('tickets')->select('email')->first()->email,
-                'title'=> DB::table('tickets')->select('title')->first()->title,
-                'issue'=> DB::table('tickets')->select('issue')->first()->issue,
-                'image'=> DB::table('tickets')->select('image')->first()->image
-            ]);
-        });
+        //CREATE A NEW ROW IN THE OTHER TABLE
+        $newRow = new ClosedTicket;
+        $newRow->name = $row->name;
+        $newRow->email = $row->email;
+        $newRow->title = $row->title;
+        $newRow->issue = $row->issue;
+        $newRow->image = $row->image;
         
+        $newRow->save();
+
+        return redirect()->back()->with('success','Data has been deleted successfully');
     }
 
 
@@ -68,10 +67,12 @@ class TicketController extends Controller
      */
    public function openticket() {
 
+    $totalclosedTickets=count(ClosedTicket::all());
     $query=Ticket::all();
     $total=count($query);
+    
     $tickets=Ticket::latest()->paginate(5);
-    return view('admin.openticket', compact('tickets','total'))->with('i',(request()->input('page',1)-1)*5);
+    return view('admin.openticket', compact('tickets','total','totalclosedTickets'))->with('i',(request()->input('page',1)-1)*5);
    }
 
    /*

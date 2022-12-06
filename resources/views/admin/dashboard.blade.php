@@ -14,10 +14,8 @@
                 <h3>{{$total}}</h3>
                 @endif
                 
-                <p>Tickets</p>
+                <p><sup style="font-size: 20px">Open Tickets</sup></p>
               </div>
-              
-              
             </div>
           </div>
           <!-- END OF TOTAL TICKETS CARD -->
@@ -34,17 +32,17 @@
             </div>
           </div>
           <!--CLOSE OF OPEN TICKET -->
-          
-          
+        
           <!--CLOSED TICKET-->
           <div class="col-lg-3 col-6">
-            <div class="small-box bg-danger">
+          <div class="small-box bg-danger">
               <div class="inner">
-                <h3></h3>
-
-                <p>Closed Tickets</p>
+              @if(!empty($totalclosedTickets))
+                <h3>{{$totalclosedTickets}}</h3>
+                @endif
+                
+                <p><sup style="font-size: 20px">Closed Tickets</sup></p>
               </div>
-             
             </div>
           </div>
           <!--END OF CLOSED TICKETS -->
