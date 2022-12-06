@@ -66,13 +66,14 @@ class TicketController extends Controller
      * ADMIN FUNCTION TO SHOW OPEN TICKETS
      */
    public function openticket() {
-
-    $totalclosedTickets=count(ClosedTicket::all());
     $query=Ticket::all();
     $total=count($query);
+
+    $query=ClosedTicket::all();
+    $closed=count($query);
     
     $tickets=Ticket::latest()->paginate(5);
-    return view('admin.openticket', compact('tickets','total','totalclosedTickets'))->with('i',(request()->input('page',1)-1)*5);
+    return view('admin.openticket', compact('tickets','total','closed'))->with('i',(request()->input('page',1)-1)*5);
    }
 
    /*
