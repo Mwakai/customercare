@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\ClosedTicket;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
+
 
 class TicketController extends Controller
 {
@@ -41,24 +44,22 @@ class TicketController extends Controller
      * DELETE TICKET 
      * SEND THE TICKET TO CLOSED TICKETS
      */
-    public function deleteTicket(Request $request){
-        /*
-            CREATE TIMESTAMPS FOR THE IMAGES 
-            MOVE THE IMAGES TO THE PUBLIC FOLDER\closed tickets
-        */
-        $image=time().'.'.$request->image->extension();
-        $request->image->move(public_path('closed_ticket'),$image);
+    public function deleteTicket(){
+        DB::transaction(function(Request $request) {
+            $id=$request->id;
+            DB::table('tickets')->where('id', $id)->delete();
 
-        $id=$request->id;
-        Ticket::where(['id'=>$id])->update([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'title'=>$request->title,
-            'issue'=>$request->issue,
-            'image'=>$image
-        ]);
-        return redirect()->back()->with('success','Message has been sent');
-
+            $image=time().'.'.$request->image->extension();
+            $request->image->move(public_path('closed'),$image);
+            DB::table('closed_tickets')->insert([
+                'name'=> DB::table('tickets')->select('name')->first()->name,
+                'email'=> DB::table('tickets')->select('email')->first()->email,
+                'title'=> DB::table('tickets')->select('title')->first()->title,
+                'issue'=> DB::table('tickets')->select('issue')->first()->issue,
+                'image'=> DB::table('tickets')->select('image')->first()->image
+            ]);
+        });
+        
     }
 
 
@@ -84,5 +85,6 @@ class TicketController extends Controller
     return view('admin.closedticket', compact('tickets','total'))->with('i',(request()->input('page',1)-1)*5);
    }
 
-    
+   
 }
+
