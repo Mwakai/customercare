@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ClosedTicket;
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Ticket;
@@ -27,7 +28,10 @@ class HomeController extends Controller
     {
         $query=Ticket::all();
         $total=count($query);
-        return view('admin.dashboard', compact('total'));
+
+        $query=ClosedTicket::all();
+        $count=count($query);
+        return view('admin.dashboard', compact('total','count'));
     }
 
    

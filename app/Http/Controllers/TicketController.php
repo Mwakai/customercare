@@ -69,11 +69,10 @@ class TicketController extends Controller
     $query=Ticket::all();
     $total=count($query);
 
-    $query=ClosedTicket::all();
-    $closed=count($query);
+    
     
     $tickets=Ticket::latest()->paginate(5);
-    return view('admin.openticket', compact('tickets','total','closed'))->with('i',(request()->input('page',1)-1)*5);
+    return view('admin.openticket', compact('tickets','total',))->with('i',(request()->input('page',1)-1)*5);
    }
 
    /*

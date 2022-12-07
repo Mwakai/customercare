@@ -37,8 +37,8 @@
           <div class="col-lg-3 col-6">
           <div class="small-box bg-danger">
               <div class="inner">
-              @if(!empty($closed))
-                <h3>{{$closed}}</h3>
+              @if(!empty($count))
+                <h3>{{$count}}</h3>
                 @endif
                 
                 <p><sup style="font-size: 20px">Closed Tickets</sup></p>
