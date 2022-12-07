@@ -83,13 +83,15 @@
                                             </td>
                                             <td>
                                                 <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#viewModal{{$ticket->id}}">
-                                                    <i class="fa fa-edit"></i>Edit
+                                                <i class="fa fa-eye"></i>&nbsp;View
 
                                                 </button>
+                                                <!--
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
                                                     <i class="fa fa-trash"></i>Delete
 
                                                 </button>
+                                                -->
                                             </td>
                                         </tr>
 
@@ -97,7 +99,7 @@
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h4>&nbsp;{{$ticket->title}} </h4>
+                                                        <h4>{{$ticket->id}}&nbsp;{{$ticket->title}} </h4>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
@@ -136,7 +138,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-12">
-                                                                      <img src="{{asset('ticket/'.$ticket->image)}}" width="150px" height="140px">
+                                                                      <img @click="openModal()" src="{{asset('ticket/'.$ticket->image)}}" width="150px" height="140px">
                                                                   </div>
                                                             </div>
                                                         </div>
