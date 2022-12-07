@@ -138,7 +138,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-12">
-                                                                      <img @click="openModal()" src="{{asset('ticket/'.$ticket->image)}}" width="150px" height="140px">
+                                                                      <img src="{{asset('ticket/'.$ticket->image)}}" width="150px" height="140px">
                                                                   </div>
                                                             </div>
                                                         </div>
