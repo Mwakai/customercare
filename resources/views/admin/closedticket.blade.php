@@ -33,7 +33,7 @@
     <div class="col-md-12">
         <div class="card card-primary collapsed-card">
             <div class="card-header">
-                <h3 class="card-title">Closed Ticket</h3>
+                <h3 class="card-title"><b>Closed Ticket</b></h3>
                
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -47,7 +47,9 @@
                         <div class="card">
                             <div class="card-header">
                                 @if(!empty($total))
-                                <h3>{{$total}} Records</h3>
+                                <h3>{{$total}} Tickets</h3>
+                                @else
+                                <h3>0 Tickets</h3>
                                 @endif
 
                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
@@ -80,7 +82,7 @@
                                                 <img src="{{asset('ticket/'.$ticket->image)}}" class="img-circle" style="width:40px; height:30px">
                                             </td>
                                             <td>
-                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#editModal">
+                                                <button type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#viewModal{{$ticket->id}}">
                                                     <i class="fa fa-edit"></i>Edit
 
                                                 </button>
@@ -91,95 +93,62 @@
                                             </td>
                                         </tr>
 
-                                        <!--EDIT MODAL-->
-                                        <div class="modal fade" id="editModal">
-                                            <div class="modal-dialog">
+                                        <div class="modal fade bd-example-modal-lg" id="viewModal{{$ticket->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h4>Update: </h4>
+                                                        <h4>&nbsp;{{$ticket->title}} </h4>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
-                                                    <form method="POST" action="" enctype="multipart/form-data">
+
+                                                    <form action="POST" action="{{route('admin.deleteTicket')}}">
                                                         @csrf
                                                         <div class="modal-body">
                                                             <div class="row">
-                                                                <input type="text" name="id" value="" hidden="true">
+                                                                <input type="text" name="id" value="{{$ticket->id}}" hidden="true">
                                                                 <div class="col-md-12">
                                                                     <div class="form-group">
-                                                                        <label>Image Name</label>
-                                                                        <input type="text" class="form-control  " name="image_name" value="">
-                                                                          
-                                                                            <div class="alert alert-danger"></div>
-                                                                            
+                                                                        <label for="name">Name</label>
+                                                                        <input type="text" class="form-control" value="{{$ticket->name}}" readonly>
                                                                     </div>
                                                                 </div>
-
                                                                 <div class="col-md-12">
-                                                                      <div class="form-group">
-                                                                          <label>Heading</label>
-                                                                          <input type="text" class="form-control @error('heading') is-invalid @enderror " name="heading" value="">
-                                                                          
-                                                                        <div class="alert alert-danger"></div>
-                                                                        
-                                                                      </div>
-                                                                  </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group">
-                                                                        <label>Paragraph</label>
-                                                                        <textarea class="form-control" name="paragraph">
-                                                                            
+                                                                    <div class="form-group">
+                                                                        <label for="name">Email</label>
+                                                                        <input type="text" class="form-control" value="{{$ticket->email}}" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label for="name">Title</label>
+                                                                        <input type="text" class="form-control" value="{{$ticket->title}}" readonly>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                    <div class="form-group">
+                                                                        <label for="name">Issue</label>
+                                                                        <textarea class="form-control" name="issue" readonly>
+                                                                            {{$ticket->issue}}
 
                                                                         </textarea>
-                                                                       
-                                                                        <div class="alert alert-danger"></div>
-                                                                        
-                                                                      </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12">
+                                                                      <img src="{{asset('ticket/'.$ticket->image)}}" width="150px" height="140px">
                                                                   </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group">
-                                                                          <label>Head</label>
-                                                                          <input type="text" class="form-control @error('head') is-invalid @enderror " name="head" value="">
-                                                                          
-                                                                        <div class="alert alert-danger"></div>
-                                                                        
-                                                                      </div>
-                                                                  </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <div class="form-group">
-                                                                          <label>Department</label>
-                                                                          <input type="text" class="form-control @error('department') is-invalid @enderror " name="department" value="">
-                                                                          
-                                                                        <div class="alert alert-danger"></div>
-                                                                        
-                                                                      </div>
-                                                                  </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <img src="" width="100px" height="90px">
-                                                                  </div>
-
-                                                                  <div class="col-md-12">
-                                                                      <label>Image</label>
-                                                                      <input type="file" class="form-control @error('image') is-invalid @enderror" name="image">  
-                                                                  </div>
-
                                                             </div>
                                                         </div>
-                                                        <div class="modal-footer justify-content-between">
-                                                              <button class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                              <button type="submit" class="btn btn-success">Save</button>
-                                                          </div>
+                                                        <div class="modal-footer justify-content-center">
+                                                            <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <!--END OF EDIT MODAL-->
+                                        <!--END OF VIEW MODAL-->
 
                                        
                                        
@@ -194,8 +163,6 @@
             </div>
         </div>
     </div>
-
-     
 
 
 </div>
