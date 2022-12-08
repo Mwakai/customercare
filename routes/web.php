@@ -35,3 +35,5 @@ Route::get('pages/admin/closedticket','TicketController@closedticket')->name('ad
 Route::get('pages/admin/reply','ReplyController@reply')->name('admin.reply');
 Route::post('/pages/admin/deleteTicket','TicketController@deleteTicket')->name('admin.deleteTicket');
 
+//SEARCH ROUTE
+Route::get('/pages/admin/search','TicketController@search')->name('admin.homeSearch');
