@@ -166,6 +166,7 @@
           </ul>
         </li>
 
+        <!--
         <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-envelope"></i>
@@ -189,7 +190,9 @@
               </li>
             </ul>
           </li>
+          -->
 
+          &nbsp;
         <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
                    onclick="event.preventDefault();

@@ -34,7 +34,11 @@
     <div class="col-md-12">
         <div class="card card-primary collapsed-card">
             <div class="card-header">
+                @if(!empty($total))
+                <h3 class="card-title"><b>{{$total}} &nbsp; Open Ticket</b></h3>
+                @else
                 <h3 class="card-title"><b>Open Ticket</b></h3>
+                @endif
                
                 <div class="card-tools">
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -52,6 +56,23 @@
                                 @else
                                 <h3>0 Tickets</h3>
                                 @endif
+
+                                <div class="card-tools" >
+                                    <div class="input-group input-group-sm" style="width: 150px;">
+
+                                        <form action="{{route('admin.homeSearch')}}" method="GET">
+                                            @csrf
+                                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                            <div class="input-group-append" >
+                                            <button type="submit" class="btn btn-default" type="get" >
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             
                             </div>
 
