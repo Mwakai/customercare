@@ -51,29 +51,27 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                @if(!empty($total))
-                                <h3>{{$total}} Tickets</h3>
-                                @else
-                                <h3>0 Tickets</h3>
-                                @endif
+                                
+                                <div class="nav nav-tabs card-header-tabs">
+                                    @if(!empty($total))
+                                    <h3>{{$total}} Tickets</h3>
+                                    @else
+                                    <h3>0 Tickets</h3>
+                                    @endif
 
-                                <div class="card-tools" >
-                                    <div class="input-group input-group-sm" style="width: 150px;">
-
+                                    <div class="form-inline" style="float:right !important;">
                                         <form action="{{route('admin.homeSearch')}}" method="GET">
                                             @csrf
-                                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                            <input type="text" class="form-control" name="table_search" placeholder="Search">
 
-                                            <div class="input-group-append" >
                                             <button type="submit" class="btn btn-default" type="get" >
                                                 <i class="fas fa-search"></i>
                                             </button>
-                                        
-                                            </div>
                                         </form>
                                     </div>
-                                </div>
-                            
+                                
+                                </div>      
+
                             </div>
 
                             <div class="card-body table-responsive p-0">
