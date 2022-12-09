@@ -36,3 +36,4 @@ Route::get('pages/admin/reply','ReplyController@reply')->name('admin.reply');
 Route::post('/pages/admin/deleteTicket','TicketController@deleteTicket')->name('admin.deleteTicket');
 
 Route::get('/pages/admin/homeSearch','TicketController@homeSearch')->name('admin.homeSearch');
+Route::get('/pages/admin/search','TicketController@search')->name('admin.search');

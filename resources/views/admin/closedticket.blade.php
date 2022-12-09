@@ -50,15 +50,25 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                @if(!empty($total))
-                                <h3>{{$total}} Tickets</h3>
-                                @else
-                                <h3>0 Tickets</h3>
-                                @endif
+                                <div class="nav nav-tabs card-header-tabs">
+                                    @if(!empty($total))
+                                    <h3>{{$total}} Tickets</h3>
+                                    @else
+                                    <h3>0 Tickets</h3>
+                                    @endif
 
-                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
-                                    <i class="fa fa-plus"></i>Add
-                                </button>
+                                    <div class="form-inline" style="position:relative;">
+                                        <form action="{{route('admin.search')}}" method="GET">
+                                            @csrf
+                                            <input type="text" class="form-control" name="table_search" placeholder="Search">
+
+                                            <button type="submit" class="btn btn-default" type="get" >
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                
+                                </div>
                             </div>
 
                             <div class="card-body table-responsive p-0">

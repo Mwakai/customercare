@@ -51,7 +51,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                
+
                                 <div class="nav nav-tabs card-header-tabs">
                                     @if(!empty($total))
                                     <h3>{{$total}} Tickets</h3>
@@ -59,7 +59,7 @@
                                     <h3>0 Tickets</h3>
                                     @endif
 
-                                    <div class="form-inline" style="float:right !important;">
+                                    <div class="form-inline" style="position:relative;">
                                         <form action="{{route('admin.homeSearch')}}" method="GET">
                                             @csrf
                                             <input type="text" class="form-control" name="table_search" placeholder="Search">

@@ -84,9 +84,8 @@ class TicketController extends Controller
     return view('admin.closedticket', compact('tickets','total'))->with('i',(request()->input('page',1)-1)*5);
    }
 
+   //SEARCH FOR OPEN TICKETS
    public function homeSearch(Request $request){
-
-
     $search=$request->table_search;
     $tickets = Ticket::where('name','LIKE','%'.$search.'%')->
                 orWhere('title','LIKE','%'.$search.'%')->
@@ -99,6 +98,22 @@ class TicketController extends Controller
     //$tickets= Ticket::latest()->paginate(5);
     return view('admin.openticket', compact('tickets'))->with('i',(request()->input('page',1)-1)*5);
 
+   }
+
+   //SEARCH FOR CLOSED TICKETS
+   public function search(Request $request) {
+
+    $search=$request->table_search;
+    $tickets = ClosedTicket::where('name','LIKE','%'.$search.'%')->
+                orWhere('title','LIKE','%'.$search.'%')->
+                latest()->paginate(5);
+
+    $query=ClosedTicket::all();
+    $total=count($query);
+    
+
+    //$tickets= Ticket::latest()->paginate(5);
+    return view('admin.closedticket', compact('tickets'))->with('i',(request()->input('page',1)-1)*5);
    }
 
    
