@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
 
 class Ticket extends Model
 {
     use HasFactory;
+    use Sortable;
+    
 
     protected $table='tickets';
     protected $fillable=[
@@ -18,4 +21,7 @@ class Ticket extends Model
         'image'
 
     ];
+
+    public $sortable = ['id', 'name', 'title'];
+
 }

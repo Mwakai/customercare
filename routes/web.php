@@ -37,3 +37,4 @@ Route::post('/pages/admin/deleteTicket','TicketController@deleteTicket')->name('
 
 Route::get('/pages/admin/homeSearch','TicketController@homeSearch')->name('admin.homeSearch');
 Route::get('/pages/admin/search','TicketController@search')->name('admin.search');
+Route::get('/pages/admin/sort','TicketController@sort')->name('admin.sort');

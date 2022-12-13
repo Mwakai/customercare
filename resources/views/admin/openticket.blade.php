@@ -189,8 +189,8 @@
                                                 <div class="modal-body">
                                                     <img class="img-fluid" src="{{asset('ticket/'.$ticket->image)}}" alt="">
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button class="btn">Close</button>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button class="btn btn-danger" data-dismiss="modal">Close</button>
                                                 </div>
                                             </div>
                                             </div>

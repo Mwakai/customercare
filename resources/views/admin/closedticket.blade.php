@@ -151,7 +151,11 @@
                                                                         </textarea>
                                                                     </div>
                                                                 </div>
+                                                                    <a href="#" data-toggle="modal" data-target="#myModal{{$ticket->id}}">
+                                                                        Click to view image
+                                                                    </a>
                                                                 <div class="col-md-12">
+                                                                    
                                                                       <img src="{{asset('ticket/'.$ticket->image)}}" width="150px" height="140px">
                                                                   </div>
                                                             </div>
@@ -165,6 +169,27 @@
                                         </div>
 
                                         <!--END OF VIEW MODAL-->
+
+                                        <!--VIEW IMAGE MODAL-->
+                                        <div style="min-width:90%;" class="modal fade bd-example-modal-lg" id="myModal{{$ticket->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">Image Title</h4>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                </div>
+
+                                                <div class="modal-body">
+                                                    <img class="img-fluid" src="{{asset('ticket/'.$ticket->image)}}" alt="">
+                                                </div>
+                                                <div class="modal-footer justify-content-center">
+                                                    <button class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>
+
+                                        <!--END OF VIEW IMAGE MODAL-->
 
                                        
                                        

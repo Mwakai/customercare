@@ -43,7 +43,7 @@
 
         <div class="col-md-8">
             <label for="exampleFormControlInput1" class="form-label">Title</label>
-            <select name="title" class="form-control form-control-sm">
+            <select name="title" class="form-control form-control-sm" id="title">
               <option>Open New Case</option>
               <option>Password Reset</option>
               <option>Account Activation</option>

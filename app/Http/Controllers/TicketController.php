@@ -116,6 +116,13 @@ class TicketController extends Controller
     return view('admin.closedticket', compact('tickets'))->with('i',(request()->input('page',1)-1)*5);
    }
 
+   public function sort() {
+    
+    $titles = Ticket::sortable()->paginate(5);
+
+    return view('admin.openticket', compact('titles'));
+   }
+
    
 }
 
