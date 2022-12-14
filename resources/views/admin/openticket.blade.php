@@ -58,8 +58,8 @@
                                     @else
                                     <h3>0 Tickets</h3>
                                     @endif
-
-                                    <div class="form-inline" style="position:relative;">
+                                    
+                                    <div class="form-inline" style="position: absolute; right: 0px;">
                                         <form action="{{route('admin.homeSearch')}}" method="GET">
                                             @csrf
                                             <input type="text" class="form-control" name="table_search" placeholder="Search">
