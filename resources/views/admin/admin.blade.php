@@ -49,11 +49,47 @@
                                             <td>{{$user->name}}</td>
                                             <td>{{$user->email}}</td>
                                             <td>
-                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="">
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#viewModal{{$user->id}}">
                                                     <i class="fa fa-trash"></i>Delete
                                                 </button>
                                             </td>
                                         </tr>
+                                        <div class="modal fade bd-example-modal-lg" id="viewModal{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4>{{$user->id}}&nbsp;{{$user->name}} </h4>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+
+                                                    <form method="POST" action="">
+                                                          @csrf
+                                                          <div class="modal-body">
+                                                              <div class="row">
+                                                                  <input type="text" name="id" value="{{$user->id}}" hidden="true">
+                                                                  <div class="col-md-12">
+                                                                        <p>Are you sure you want to delete 
+                                                                            <b>{{$user->name}}'s</b>
+                                                                            Account ?
+                                                                        </p>
+                                                                  </div>
+                                                              </div>
+                                                          </div>
+                                                          <div class="modal-footer justify-content-between">
+                                                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                              <button type="submit" class="btn btn-success">Delete</button>
+                                                          </div>
+
+                                                      </form>
+
+                                                
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!--END OF VIEW MODAL-->
                                         @endforeach
                                     </tbody>
                                 </table>
