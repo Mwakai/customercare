@@ -20,7 +20,11 @@
                         <div class="card">
                             <div class="card-header">
                                 <div class="nav nav-tabs card-header-tabs">
-                                    <h3>Admin</h3>  
+                                    @if(!empty($total))
+                                    <h3>{{$total}} Admin</h3>
+                                    @else
+                                    <h3></h3>
+                                    @endif  
                                 </div>
                                 <br>
                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
@@ -39,16 +43,18 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($users as $user)
                                         <tr>
-                                            <td>id</td>
-                                            <td>name</td>
-                                            <td>email</td>
+                                            <td>{{$user->id}}</td>
+                                            <td>{{$user->name}}</td>
+                                            <td>{{$user->email}}</td>
                                             <td>
                                                 <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="">
                                                     <i class="fa fa-trash"></i>Delete
                                                 </button>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
